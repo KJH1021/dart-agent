@@ -3,7 +3,10 @@
 반도체 밸류체인(소자·장비·소재) 기업을 DART 전자공시 원본에서 직접 읽어
 **경쟁사 비교표**와 **사업보고서 연도별 서술 변화**를 리포트로 뽑는다.
 
-**▶ [리포트 보기](https://kjh1021.github.io/dart-agent/)** — 반도체 소재사 × IDM 5개년 비교
+**▶ [리포트 보기](https://kjh1021.github.io/dart-agent/)**
+
+- [소재사 × IDM 비교 (2021-2025)](https://kjh1021.github.io/dart-agent/materials-idm.html)
+- [장비사 × IDM 비교 (2021-2025)](https://kjh1021.github.io/dart-agent/equipment.html)
 
 ## 왜 이 구조인가
 

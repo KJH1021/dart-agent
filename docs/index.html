@@ -24,11 +24,23 @@ h1{font-size:32px;line-height:1.25;margin:0 0 10px;letter-spacing:-.025em}
 .meta a{text-decoration:none;border-bottom:1px solid var(--line)}
 h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);
   margin:56px 0 18px;font-weight:600}
+.thesis{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:22px 24px;margin-bottom:34px;font-size:14px;line-height:1.75}
+.thesis .row{display:flex;gap:14px;margin-bottom:8px}
+.thesis .row:last-child{margin-bottom:0}
+.thesis .lbl{flex:0 0 72px;color:var(--mut);font-size:12px;padding-top:2px}
+.thesis .x{color:var(--neg);font-weight:600}
+.thesis .o{color:var(--pos);font-weight:600}
 .find{border-left:2px solid var(--acc);padding:2px 0 2px 18px;margin:0 0 26px}
 .find h3{font-size:17px;margin:0 0 6px;letter-spacing:-.01em}
 .find p{margin:0;color:var(--mut);font-size:14px}
 .find .num{font-variant-numeric:tabular-nums;color:var(--fg);font-weight:600}
 .pos{color:var(--pos);font-weight:600}.neg{color:var(--neg);font-weight:600}
+.bars{margin:12px 0 4px;font-size:13px;font-variant-numeric:tabular-nums}
+.bars div{display:flex;align-items:center;gap:10px;margin-bottom:5px}
+.bars .n{flex:0 0 84px;color:var(--fg)}
+.bars .v{flex:0 0 62px;color:var(--fg);font-weight:600}
+.bars .b{height:9px;background:var(--acc);border-radius:2px;opacity:.75}
 .report{display:block;text-decoration:none;color:inherit;background:var(--card);
   border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:12px;
   transition:border-color .15s}
@@ -37,8 +49,6 @@ h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)
 .report .d{font-size:13px;color:var(--mut)}
 .report .tag{display:inline-block;font-size:11px;color:var(--mut);border:1px solid var(--line);
   border-radius:20px;padding:2px 9px;margin-top:10px;margin-right:5px}
-.soon{opacity:.5;border-style:dashed}
-.soon:hover{border-color:var(--line)}
 .pipe{background:var(--card);border:1px solid var(--line);border-radius:12px;
   padding:18px 22px;font-size:13px;line-height:2}
 .pipe b{font-weight:600;color:var(--acc)}
@@ -52,7 +62,7 @@ footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);
   <h1>반도체 밸류체인 재무 분석</h1>
   <p class="lede">
     금융감독원 전자공시(DART) 원문에서 재무제표와 사업보고서를 직접 수집해,
-    소자·소재·장비 기업을 같은 축에서 비교하고 사이클 국면을 읽는 도구.
+    소자·소재·장비 12개 기업을 같은 축에서 비교하고 2021~2025년 사이클 한 바퀴를 읽었다.
     수집부터 리포트 생성까지 전 과정을 Python으로 구현했다.
   </p>
   <p class="meta">
@@ -60,49 +70,84 @@ footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);
     <a href="https://github.com/KJH1021/dart-agent">소스 코드 (GitHub)</a>
   </p>
 </header>
+<h2>출발한 가설과 도착한 결론</h2>
+<div class="thesis">
+  <div class="row">
+    <div class="lbl">가설</div>
+    <div>IDM이 투자를 줄이면 <b>6~12개월 뒤</b> 소재사가, 그 뒤에 장비사가 꺾인다 —
+      밸류체인을 따라 시차가 생긴다. <span class="x">반증됨</span></div>
+  </div>
+  <div class="row">
+    <div class="lbl">결론</div>
+    <div>소자·소재·장비 <b>모두 2023년에 동시에</b> 저점을 찍었다.
+      갈린 것은 시차가 아니라 <b>진폭</b>과 <b>고객 구조</b>였다. <span class="o">데이터 기반</span></div>
+  </div>
+</div>
 <h2>주요 발견</h2>
 <div class="find">
-  <h3>소재사는 후행지표가 아니라 동행지표였다</h3>
+  <h3>시차는 없었다 — 밸류체인 전체가 같은 해에 꺾였다</h3>
   <p>
-    당초 가설은 "IDM이 투자를 줄이면 6~12개월 뒤 소재사 매출이 꺾인다"였다. 데이터는 반대였다.
-    2023년 매출 증감률은 삼성전자 <span class="neg">-14.3%</span>,
+    2023년 매출 증감률: 삼성전자 <span class="neg">-14.3%</span>,
     SK하이닉스 <span class="neg">-26.6%</span>,
     동진쎄미켐 <span class="neg">-10.1%</span>,
-    솔브레인 <span class="neg">-22.6%</span> — <b>전부 같은 해에 꺾였다.</b>
-    소재 소비량은 증설 투자가 아니라 <b>가동률(웨이퍼 투입량)</b>에 연동되기 때문이다.
-    팹이 감산하면 그날부터 케미칼 소비가 줄어든다.
+    원익IPS <span class="neg">-31.8%</span>,
+    테스 <span class="neg">-59.0%</span>.
+    소재 소비량은 증설이 아니라 <b>가동률(웨이퍼 투입량)</b>에 연동되고,
+    장비 매출은 IDM의 손익이 아니라 <b>발주 결정</b>을 따라간다. 두 경로 모두 시차를 만들지 않았다.
   </p>
 </div>
 <div class="find">
-  <h3>CAPEX 비율만 보면 투자 축소 폭을 절반으로 과소평가한다</h3>
+  <h3>장비사는 후행지표가 아니라 증폭기다</h3>
+  <p>같은 2023년, 그룹별 평균 매출 감소율은 이렇게 갈렸다.</p>
+  <div class="bars">
+    <div><span class="n">장비사</span><span class="v">-32.1%</span><span class="b" style="width:230px"></span></div>
+    <div><span class="n">IDM</span><span class="v">-20.5%</span><span class="b" style="width:147px"></span></div>
+    <div><span class="n">소재사</span><span class="v">-18.7%</span><span class="b" style="width:134px"></span></div>
+  </div>
+  <p>
+    팹이 70% 가동하면 케미칼 소비도 70%로 줄어들 뿐이지만, 증설이 멈추면 장비 매출은 0에 수렴한다.
+    게다가 2022년 — 삼성(<span class="pos">+8.1%</span>)과 하이닉스(<span class="pos">+3.8%</span>)가
+    아직 성장하던 해 — 에 원익IPS는 이미 <span class="neg">-17.9%</span>였다.
+    <b>일부 장비사는 후행이 아니라 선행했다.</b>
+  </p>
+</div>
+<div class="find">
+  <h3>캡티브 벤더는 사이클을 타지 않는다</h3>
+  <p>
+    삼성 자회사 세메스의 매출은 <span class="num">25,155 → 24,450 → 24,713억</span>.
+    외부 장비사가 30~59% 빠진 같은 다운턴에서 변동폭이 <b>±3%</b>에 그쳤다.
+    장비사의 진폭이 기술력이 아니라 <b>고객 구조</b>에서 온다는 것을 보여주는 대조군이다.
+  </p>
+</div>
+<div class="find">
+  <h3>HBM 호황은 국내 전공정 밸류체인으로 흐르지 않았다</h3>
+  <p>
+    2025년 매출을 2021년 대비로 보면 SK하이닉스는 <span class="pos">226%</span>가 됐지만,
+    원익IPS <span class="neg">74%</span> · 주성엔지니어링 82% · 테스 94% —
+    국내 전공정 장비사는 4년 전 수준을 겨우 회복했거나 아직 밑돈다.
+    소재사도 동진쎄미켐이 <span class="neg">-15.2%</span>로 역성장했다.
+    HBM은 다이를 적층하는 기술이라 <b>웨이퍼 투입 매수 자체가 크게 늘지 않고</b>,
+    투자는 후공정과 해외 노광 장비로 향했다.
+  </p>
+</div>
+<div class="find">
+  <h3>비율만 보면 투자 축소 폭을 절반으로 과소평가한다</h3>
   <p>
     2023년 대부분 기업의 CAPEX/매출 비율이 급등했지만, 분자가 아니라
-    <b>분모(매출)가 줄어서 생긴 착시</b>였다. 비율에서 절대액을 역산하면
-    SK하이닉스는 <span class="num">19.0조 → 8.3조</span>로 <span class="neg">-56%</span>를 잘랐는데,
-    비율상으로는 -40%로만 보인다. 반대로 동진쎄미켐은 다운턴 한복판에서
-    CAPEX를 <span class="num">930억 → 2,828억</span>으로 <span class="pos">3배</span> 늘렸고,
+    <b>분모(매출)가 줄어서 생긴 착시</b>였다. 절대액을 역산하면 SK하이닉스는
+    <span class="num">19.0조 → 8.3조</span>로 <span class="neg">-56%</span>를 잘랐는데
+    비율상으로는 -40%로만 보인다. 반대로 동진쎄미켐은 다운턴 한복판에서 CAPEX를
+    <span class="num">930억 → 2,828억</span>으로 <span class="pos">3배</span> 늘렸고,
     같은 해 부채비율이 82%까지 오른 이유가 여기 있다.
-  </p>
-</div>
-<div class="find">
-  <h3>HBM 호황은 전공정 소재로 낙수되지 않았다</h3>
-  <p>
-    2024~2025년 SK하이닉스 매출은 <span class="pos">+102%</span>,
-    <span class="pos">+46.8%</span>. 같은 기간 소재사는 한 자릿수~10%대에 그쳤고
-    동진쎄미켐은 오히려 <span class="neg">-15.2%</span>로 2021년 수준으로 회귀했다.
-    HBM은 다이를 적층하는 기술이라 <b>웨이퍼 투입 매수 자체는 크게 늘지 않는다.</b>
-    부가가치가 후공정으로 쏠리는 동안 전공정 케미칼 수요는 제자리였다.
   </p>
 </div>
 <div class="find">
   <h3>동진쎄미켐은 반도체 순수 플레이가 아니다</h3>
   <p>
-    사업보고서 본문에서 추출한 사업부문별 매출(2024년)은
-    전자재료 <span class="num">6,994억</span> ·
-    발포제 <span class="num">5,742억</span> ·
-    정제유 <span class="num">293억</span>.
+    사업보고서 본문에서 추출한 사업부문별 매출(2024년)은 전자재료 <span class="num">6,994억</span> ·
+    발포제 <span class="num">5,742억</span> · 정제유 <span class="num">293억</span>.
     <b>매출의 41%가 신발밑창·건설자재용 발포제</b>다. 반도체 사이클만으로 해석하면 오독한다.
-    두 경로(재무제표 API·공시 원문 파싱)로 각각 뽑은 합계가 정확히 일치해 교차검증됐다.
+    재무제표 API와 공시 원문 파싱이라는 서로 다른 두 경로로 뽑은 합계가 정확히 일치해 교차검증됐다.
   </p>
 </div>
 <h2>리포트</h2>
@@ -113,10 +158,13 @@ footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);
   </div>
   <span class="tag">7개사</span><span class="tag">5개년</span><span class="tag">사업보고서 diff 포함</span>
 </a>
-<div class="report soon">
+<a class="report" href="equipment.html">
   <div class="t">반도체 장비사 × IDM 비교 (2021-2025)</div>
-  <div class="d">동행(소재) 대 후행(장비) 가설 검증 — 준비 중</div>
-</div>
+  <div class="d">
+    삼성전자 · SK하이닉스 · 세메스 · 원익IPS · 주성엔지니어링 · 유진테크 · 테스 · 피에스케이
+  </div>
+  <span class="tag">8개사</span><span class="tag">5개년</span><span class="tag">캡티브 대조군 포함</span>
+</a>
 <h2>구조</h2>
 <div class="pipe">
   <b>수집</b> <span>OpenDART API — 인증·호출간격 제어·응답 캐시, 기업명/종목코드 매핑 10만 건</span><br>
