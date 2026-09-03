@@ -1,546 +1,134 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
+<!doctype html>
+<html lang="ko"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>김준하 | Junha Kim — 반도체 공정 포트폴리오</title>
-<meta name="description" content="숭실대학교 화학공학 전공. 포토리소그래피를 중심으로 반도체 전공정과 후공정을 공부하는 학부연구생 김준하의 포트폴리오.">
-<meta property="og:title" content="김준하 | Junha Kim">
-<meta property="og:description" content="화학공학 전공자의 시각으로 반도체 공정을 공부합니다.">
-<meta property="og:type" content="profile">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<title>반도체 밸류체인 재무 분석</title>
 <style>
-  :root{
-    --bg:#f6f6f7;
-    --surface:#ffffff;
-    --ink:#23262b;
-    --ink-soft:#585d65;
-    --muted:#8d9199;
-    --rule:#e3e4e7;
-    --rule-strong:#cfd1d5;
-    --accent:#2f6aa8;
-    --accent-soft:#eaf0f7;
-    --measure:44rem;
-  }
-
-  *,*::before,*::after{box-sizing:border-box;}
-
-  html{-webkit-text-size-adjust:100%;}
-
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,
-      "Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
-    font-size:17px;
-    line-height:1.75;
-    letter-spacing:-0.003em;
-    -webkit-font-smoothing:antialiased;
-  }
-
-  .page{
-    max-width:var(--measure);
-    margin:0 auto;
-    padding:4.5rem 1.5rem 6rem;
-  }
-
-  a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;}
-  a:hover{border-bottom-color:currentColor;}
-  a:focus-visible{
-    outline:2px solid var(--accent);
-    outline-offset:3px;
-    border-radius:2px;
-  }
-
-  /* ---------- header ---------- */
-
-  .masthead{display:flex;gap:1.5rem;align-items:flex-start;}
-
-  .avatar{
-    flex:0 0 84px;
-    width:84px;height:84px;
-    border-radius:50%;
-    object-fit:cover;
-    background:var(--rule);
-    filter:grayscale(100%);
-  }
-
-  .identity{min-width:0;}
-
-  h1{
-    margin:0;
-    font-size:2.1rem;
-    font-weight:700;
-    letter-spacing:-0.02em;
-    line-height:1.2;
-  }
-
-  .latin-name{
-    margin:.35rem 0 0;
-    font-size:.95rem;
-    font-weight:400;
-    color:var(--muted);
-    letter-spacing:.02em;
-  }
-
-  .role{
-    margin:.9rem 0 0;
-    font-size:1rem;
-    color:var(--ink-soft);
-  }
-
-  .intro{
-    margin:2rem 0 0;
-    color:var(--ink-soft);
-    max-width:36rem;
-  }
-
-  /* ---------- process strip (the one bold element) ---------- */
-
-  .flow{
-    margin:2.75rem 0 0;
-    padding:1.25rem 1.25rem 1.1rem;
-    background:var(--surface);
-    border:1px solid var(--rule);
-  }
-
-  .flow-caption{
-    margin:0 0 1rem;
-    font-size:.82rem;
-    color:var(--muted);
-  }
-
-  .flow-track{
-    display:flex;
-    align-items:flex-start;
-    gap:0;
-    overflow-x:auto;
-    padding-bottom:.35rem;
-    scrollbar-width:thin;
-  }
-
-  .node{
-    flex:1 0 auto;
-    min-width:5.1rem;
-    text-align:center;
-    position:relative;
-    padding-top:1.1rem;
-  }
-
-  .node::before{
-    content:"";
-    position:absolute;
-    top:3px;left:50%;
-    width:7px;height:7px;
-    margin-left:-3.5px;
-    border-radius:50%;
-    background:var(--rule-strong);
-  }
-
-  .node::after{
-    content:"";
-    position:absolute;
-    top:6px;left:50%;
-    width:100%;height:1px;
-    background:var(--rule-strong);
-    z-index:-1;
-  }
-
-  .node:last-child::after{display:none;}
-
-  .node span{
-    display:block;
-    font-size:.8rem;
-    color:var(--muted);
-    line-height:1.45;
-  }
-
-  .node.is-focus::before{
-    background:var(--accent);
-    box-shadow:0 0 0 4px var(--accent-soft);
-  }
-
-  .node.is-focus span{
-    color:var(--accent);
-    font-weight:600;
-  }
-
-  .flow-track{position:relative;z-index:0;}
-
-  /* ---------- sections ---------- */
-
-  section{margin-top:3.5rem;}
-
-  h2{
-    margin:0 0 1.5rem;
-    padding-bottom:.6rem;
-    border-bottom:1px solid var(--rule-strong);
-    font-size:1.05rem;
-    font-weight:600;
-    letter-spacing:-0.01em;
-  }
-
-  .entry{
-    padding:1.35rem 0;
-    border-bottom:1px solid var(--rule);
-  }
-  .entry:first-of-type{padding-top:0;}
-  .entry:last-of-type{border-bottom:0;padding-bottom:0;}
-
-  .entry-period{
-    margin:0 0 .3rem;
-    font-size:.82rem;
-    color:var(--muted);
-    font-variant-numeric:tabular-nums;
-  }
-
-  .entry h3{
-    margin:0;
-    font-size:1.02rem;
-    font-weight:600;
-    line-height:1.5;
-  }
-
-  .entry-org{
-    margin:.3rem 0 0;
-    font-size:.9rem;
-    color:var(--ink-soft);
-  }
-
-  .entry p.detail{
-    margin:.6rem 0 0;
-    font-size:.95rem;
-    color:var(--ink-soft);
-  }
-
-  .entry .links{
-    margin:.7rem 0 0;
-    font-size:.88rem;
-  }
-  .entry .links a + a{margin-left:1rem;}
-
-  /* ---------- study map ---------- */
-
-  .map{list-style:none;margin:0;padding:0;}
-
-  .map li{
-    display:flex;
-    align-items:flex-start;
-    gap:.9rem;
-    padding:.95rem 0;
-    border-bottom:1px solid var(--rule);
-  }
-  .map li:last-child{border-bottom:0;}
-
-  .dot{
-    flex:0 0 8px;
-    width:8px;height:8px;
-    margin-top:.62rem;
-    border-radius:50%;
-    background:var(--rule-strong);
-  }
-  .dot.active{background:var(--accent);}
-
-  .map strong{font-weight:600;font-size:.98rem;display:block;}
-  .map .topics{
-    display:block;
-    font-size:.88rem;
-    color:var(--muted);
-    margin-top:.2rem;
-  }
-
-  /* ---------- gallery ---------- */
-
-  .gallery{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:.65rem;
-    margin:1.4rem 0 0;
-  }
-  .gallery figure{margin:0;}
-  .gallery img{
-    display:block;
-    width:100%;
-    height:auto;
-    border:1px solid var(--rule);
-    background:var(--surface);
-  }
-
-  /* ---------- lists ---------- */
-
-  .plain{list-style:none;margin:0;padding:0;}
-  .plain li{
-    padding:.7rem 0;
-    border-bottom:1px solid var(--rule);
-    font-size:.97rem;
-  }
-  .plain li:last-child{border-bottom:0;}
-  .plain .when{
-    color:var(--muted);
-    font-size:.85rem;
-    font-variant-numeric:tabular-nums;
-    margin-left:.5rem;
-  }
-
-  /* ---------- footer ---------- */
-
-  footer{
-    margin-top:4rem;
-    padding-top:1.5rem;
-    border-top:1px solid var(--rule-strong);
-    font-size:.9rem;
-    color:var(--muted);
-  }
-  footer .contact a{margin-right:1.25rem;}
-  footer .updated{margin:1.2rem 0 0;font-size:.82rem;}
-
-  /* ---------- responsive ---------- */
-
-  @media (max-width:640px){
-    body{font-size:16px;}
-    .page{padding:3rem 1.25rem 4rem;}
-    h1{font-size:1.75rem;}
-    .masthead{gap:1.1rem;}
-    .avatar{flex-basis:64px;width:64px;height:64px;}
-    .gallery{grid-template-columns:1fr;gap:.9rem;}
-  }
-
-  @media (prefers-reduced-motion:reduce){
-    *{transition:none !important;animation:none !important;}
-  }
-
-  @media print{
-    body{background:#fff;font-size:11pt;}
-    .page{padding:0;max-width:none;}
-    .flow,.gallery{display:none;}
-    a{color:inherit;border:0;}
-  }
+:root{
+  --bg:#fbfaf9;--fg:#1c1a17;--mut:#6b645c;--line:#e3ded7;
+  --acc:#8a5a2b;--card:#fff;--pos:#2f7d4f;--neg:#a3402f;
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#141310;--fg:#eeeae4;--mut:#a49c92;--line:#2e2a25;
+  --acc:#d99a5b;--card:#1c1a17;--pos:#6cc38d;--neg:#e0806e;
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:64px 24px 96px}
+a{color:var(--acc)}
+header{margin-bottom:56px}
+h1{font-size:32px;line-height:1.25;margin:0 0 10px;letter-spacing:-.025em}
+.lede{color:var(--mut);font-size:16px;margin:0 0 20px;max-width:62ch}
+.meta{font-size:13px;color:var(--mut)}
+.meta a{text-decoration:none;border-bottom:1px solid var(--line)}
+h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);
+  margin:56px 0 18px;font-weight:600}
+.find{border-left:2px solid var(--acc);padding:2px 0 2px 18px;margin:0 0 26px}
+.find h3{font-size:17px;margin:0 0 6px;letter-spacing:-.01em}
+.find p{margin:0;color:var(--mut);font-size:14px}
+.find .num{font-variant-numeric:tabular-nums;color:var(--fg);font-weight:600}
+.pos{color:var(--pos);font-weight:600}.neg{color:var(--neg);font-weight:600}
+.report{display:block;text-decoration:none;color:inherit;background:var(--card);
+  border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:12px;
+  transition:border-color .15s}
+.report:hover{border-color:var(--acc)}
+.report .t{font-size:16px;font-weight:600;margin-bottom:4px;letter-spacing:-.01em}
+.report .d{font-size:13px;color:var(--mut)}
+.report .tag{display:inline-block;font-size:11px;color:var(--mut);border:1px solid var(--line);
+  border-radius:20px;padding:2px 9px;margin-top:10px;margin-right:5px}
+.soon{opacity:.5;border-style:dashed}
+.soon:hover{border-color:var(--line)}
+.pipe{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:18px 22px;font-size:13px;line-height:2}
+.pipe b{font-weight:600;color:var(--acc)}
+.pipe span{color:var(--mut)}
+footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);
+  font-size:12px;color:var(--mut);line-height:1.7}
 </style>
-</head>
-<body>
-<main class="page">
-
-  <header class="masthead">
-    <img class="avatar" src="assets/profile.jpg" alt="" data-optional>
-    <div class="identity">
-      <h1>김준하</h1>
-      <p class="latin-name">Junha Kim</p>
-      <p class="role">숭실대학교 화학공학과 · 포토리소그래피 연구실 학부연구생</p>
-    </div>
-  </header>
-
-  <p class="intro">
-    화학공학 전공자의 시각으로 반도체 공정을 공부합니다.
-    포토레지스트의 감광 거동, 플라즈마 식각의 반응 화학처럼 공정을 실제로 움직이는 것은
-    결국 화학이라고 생각합니다. 지금은 포토리소그래피를 중심에 두고 전공정에서 후공정까지
-    배경지식의 범위를 넓혀가는 중입니다.
+</head><body>
+<div class="wrap">
+<header>
+  <h1>반도체 밸류체인 재무 분석</h1>
+  <p class="lede">
+    금융감독원 전자공시(DART) 원문에서 재무제표와 사업보고서를 직접 수집해,
+    소자·소재·장비 기업을 같은 축에서 비교하고 사이클 국면을 읽는 도구.
+    수집부터 리포트 생성까지 전 과정을 Python으로 구현했다.
   </p>
-
-  <div class="flow">
-    <p class="flow-caption">공부하고 있는 공정 범위</p>
-    <div class="flow-track">
-      <div class="node is-focus"><span>포토<br>리소그래피</span></div>
-      <div class="node"><span>식각<br>Etch</span></div>
-      <div class="node"><span>박막증착<br>CVD·ALD</span></div>
-      <div class="node"><span>이온주입<br>Implant</span></div>
-      <div class="node"><span>CMP<br>Cleaning</span></div>
-      <div class="node"><span>패키징<br>TSV·EMC</span></div>
-    </div>
+  <p class="meta">
+    김준하 ·
+    <a href="https://github.com/KJH1021/dart-agent">소스 코드 (GitHub)</a>
+  </p>
+</header>
+<h2>주요 발견</h2>
+<div class="find">
+  <h3>소재사는 후행지표가 아니라 동행지표였다</h3>
+  <p>
+    당초 가설은 "IDM이 투자를 줄이면 6~12개월 뒤 소재사 매출이 꺾인다"였다. 데이터는 반대였다.
+    2023년 매출 증감률은 삼성전자 <span class="neg">-14.3%</span>,
+    SK하이닉스 <span class="neg">-26.6%</span>,
+    동진쎄미켐 <span class="neg">-10.1%</span>,
+    솔브레인 <span class="neg">-22.6%</span> — <b>전부 같은 해에 꺾였다.</b>
+    소재 소비량은 증설 투자가 아니라 <b>가동률(웨이퍼 투입량)</b>에 연동되기 때문이다.
+    팹이 감산하면 그날부터 케미칼 소비가 줄어든다.
+  </p>
+</div>
+<div class="find">
+  <h3>CAPEX 비율만 보면 투자 축소 폭을 절반으로 과소평가한다</h3>
+  <p>
+    2023년 대부분 기업의 CAPEX/매출 비율이 급등했지만, 분자가 아니라
+    <b>분모(매출)가 줄어서 생긴 착시</b>였다. 비율에서 절대액을 역산하면
+    SK하이닉스는 <span class="num">19.0조 → 8.3조</span>로 <span class="neg">-56%</span>를 잘랐는데,
+    비율상으로는 -40%로만 보인다. 반대로 동진쎄미켐은 다운턴 한복판에서
+    CAPEX를 <span class="num">930억 → 2,828억</span>으로 <span class="pos">3배</span> 늘렸고,
+    같은 해 부채비율이 82%까지 오른 이유가 여기 있다.
+  </p>
+</div>
+<div class="find">
+  <h3>HBM 호황은 전공정 소재로 낙수되지 않았다</h3>
+  <p>
+    2024~2025년 SK하이닉스 매출은 <span class="pos">+102%</span>,
+    <span class="pos">+46.8%</span>. 같은 기간 소재사는 한 자릿수~10%대에 그쳤고
+    동진쎄미켐은 오히려 <span class="neg">-15.2%</span>로 2021년 수준으로 회귀했다.
+    HBM은 다이를 적층하는 기술이라 <b>웨이퍼 투입 매수 자체는 크게 늘지 않는다.</b>
+    부가가치가 후공정으로 쏠리는 동안 전공정 케미칼 수요는 제자리였다.
+  </p>
+</div>
+<div class="find">
+  <h3>동진쎄미켐은 반도체 순수 플레이가 아니다</h3>
+  <p>
+    사업보고서 본문에서 추출한 사업부문별 매출(2024년)은
+    전자재료 <span class="num">6,994억</span> ·
+    발포제 <span class="num">5,742억</span> ·
+    정제유 <span class="num">293억</span>.
+    <b>매출의 41%가 신발밑창·건설자재용 발포제</b>다. 반도체 사이클만으로 해석하면 오독한다.
+    두 경로(재무제표 API·공시 원문 파싱)로 각각 뽑은 합계가 정확히 일치해 교차검증됐다.
+  </p>
+</div>
+<h2>리포트</h2>
+<a class="report" href="materials-idm.html">
+  <div class="t">반도체 소재사 × IDM 비교 (2021-2025)</div>
+  <div class="d">
+    삼성전자 · SK하이닉스 · 동진쎄미켐 · 솔브레인 · 한솔케미칼 · 이엔에프테크놀로지 · 원익머트리얼즈
   </div>
-
-  <section id="research">
-    <h2>연구 및 실습</h2>
-
-    <article class="entry">
-      <p class="entry-period">2026.07 – 현재</p>
-      <h3>포토리소그래피 연구실 학부연구생</h3>
-      <p class="entry-org">숭실대학교</p>
-      <p class="detail">
-        포토레지스트 종류에 따른 공정 변수 제어를 배우고 있습니다.
-        스핀 코팅 회전수에 따른 박막 두께 거동, 노광량과 초점 조건이 패턴에 미치는 영향,
-        그리고 포토 공정에서 식각으로 이어지는 흐름을 원리부터 익히는 중입니다.
-      </p>
-    </article>
-
-    <article class="entry">
-      <p class="entry-period">2026.07.21 – 07.23</p>
-      <h3>반도체 패키징 공정 실습</h3>
-      <p class="entry-org">서울대학교 국립대학 권역별 반도체공동연구소 주관 · 전남대학교–앰코테크놀로지</p>
-      <p class="detail">
-        Class 1000 클린룸에서 후공정을 직접 다뤘습니다.
-        0.8 mil 구리 와이어 본딩을 수행하며 캐필러리를 교체하고 초음파·정렬 캘리브레이션을 진행했고,
-        DDR3 기판에 400 µm SnAgCu 솔더볼을 붙이는 공정과 가스 캐비닛의 공급·정지·퍼지 절차를 경험했습니다.
-        WLP/PLP와 PDIP·MQFP·TQFP 계열 패키지 이론도 함께 다뤘습니다.
-      </p>
-    </article>
-  </section>
-
-  <section id="projects">
-    <h2>프로젝트</h2>
-
-    <article class="entry">
-      <p class="entry-period">2026</p>
-      <h3>High-k Metal Gate 적용 NMOSFET의 단채널 효과 분석</h3>
-      <p class="entry-org">TCAD Sentaurus · 팀 프로젝트</p>
-      <p class="detail">
-        게이트 길이를 줄여갈 때 나타나는 단채널 효과와 DIBL을 시뮬레이션으로 관찰하고,
-        High-k 게이트 절연막을 적용했을 때 특성이 어떻게 달라지는지 비교했습니다.
-      </p>
-    </article>
-
-    <article class="entry">
-      <p class="entry-period">2026</p>
-      <h3>활성탄–제올라이트 4A 층상 필터 공기청정기</h3>
-      <p class="entry-org">숭실대학교 캡스톤디자인</p>
-      <p class="detail">
-        흡착 특성이 다른 두 소재를 층으로 쌓아 휘발성 유기화합물 제거 성능을 높이는 필터를 설계하고,
-        센서로 실내 농도 변화를 확인하는 구조로 구현했습니다.
-      </p>
-    </article>
-
-    <article class="entry">
-      <p class="entry-period">2026</p>
-      <h3>ZIF-8 분리막 논문 리뷰 발표</h3>
-      <p class="entry-org">학부연구 프로그램</p>
-      <p class="detail">
-        금속-유기 골격체 기반 분리막의 합성 조건과 기체 분리 성능을 다룬 논문을 분석해 발표했습니다.
-      </p>
-    </article>
-
-    <article class="entry">
-      <p class="entry-period">2025</p>
-      <h3>가스충전소 배관 시스템 설계</h3>
-      <p class="entry-org">유체역학 팀 프로젝트</p>
-      <p class="detail">
-        배관 경로의 마찰 손실을 계산해 필요한 펌프 동력을 산정하고,
-        운전 조건에 따른 경향을 머신러닝으로 함께 분석했습니다.
-      </p>
-    </article>
-  </section>
-
-  <section id="study">
-    <h2>공정 학습 정리</h2>
-    <ul class="map">
-      <li>
-        <span class="dot active"></span>
-        <span>
-          <strong>포토리소그래피</strong>
-          <span class="topics">해상도와 초점심도의 트레이드오프 · 광원의 발전(g/i-line → KrF → ArF → ArF 이머전 → EUV) · 멀티패터닝 · EUV와 High-NA · 포토레지스트</span>
-        </span>
-      </li>
-      <li>
-        <span class="dot active"></span>
-        <span>
-          <strong>패키징</strong>
-          <span class="topics">와이어 본딩 · 웨이퍼 레벨 패키징 · EMC · TSV</span>
-        </span>
-      </li>
-      <li>
-        <span class="dot"></span>
-        <span>
-          <strong>박막증착</strong>
-          <span class="topics">CVD · ALD · PVD</span>
-        </span>
-      </li>
-      <li>
-        <span class="dot"></span>
-        <span>
-          <strong>이온주입</strong>
-          <span class="topics">주입 조건과 어닐링</span>
-        </span>
-      </li>
-      <li>
-        <span class="dot"></span>
-        <span>
-          <strong>CMP · 세정</strong>
-          <span class="topics">슬러리 화학 · 평탄화</span>
-        </span>
-      </li>
-    </ul>
-  </section>
-
-  <section id="contents">
-    <h2>콘텐츠 포트폴리오</h2>
-
-    <article class="entry">
-      <p class="entry-period">2026.07</p>
-      <h3>리소그래피 기술을 카드뉴스로 정리하기</h3>
-      <p class="detail">
-        노광 기술의 발전 과정을 스스로 정리하고, 비전공자도 읽을 수 있는 카드뉴스와 발표 자료로 재구성했습니다.
-        공정 흐름과 해상도–초점심도의 관계에서 시작해 이머전과 멀티패터닝을 거쳐 EUV와 High-NA까지 다뤘고,
-        장비를 만드는 회사와 칩을 만드는 회사의 관계를 공급망 관점에서 보여주는 숏폼 기획도 함께 구성했습니다.
-      </p>
-      <p class="detail">제작: Adobe Photoshop, Miricanvas</p>
-    </article>
-
-    <div class="gallery">
-      <figure><img src="assets/asml_portfolio_1.png" alt="리소그래피 정리 자료 표지" data-optional></figure>
-      <figure><img src="assets/asml_portfolio_2.png" alt="자기소개 구성 페이지" data-optional></figure>
-      <figure><img src="assets/asml_portfolio_3.png" alt="콘텐츠 기획 구성 페이지" data-optional></figure>
-    </div>
-
-    <article class="entry">
-      <p class="entry-period">2025 – 2026</p>
-      <h3>미소캡슐 — 참여형 캠퍼스 콘텐츠</h3>
-      <p class="entry-org">숭실대학교 홍보대사</p>
-      <p class="detail">
-        캠퍼스 투어에 온 고등학생 150명이 미래의 자신에게 편지를 남기도록 기획하고 운영했습니다.
-        카드뉴스와 블로그 글을 직접 만들었고, 이후 한 고등학교에서 3학년 전체 투어를 먼저 요청해왔습니다.
-      </p>
-      <p class="links">
-        <a href="https://blog.naver.com/ssumiso/224185446844">블로그 포스팅</a>
-        <a href="https://www.instagram.com/p/DPsuexCEX6n/">인스타그램 카드뉴스</a>
-      </p>
-    </article>
-  </section>
-
-  <section id="activities">
-    <h2>대외활동</h2>
-    <ul class="plain">
-      <li>DB김준기문화재단 DB드림리더 3기 장학생<span class="when">2026.03 – 현재</span></li>
-      <li>숭실대학교 홍보대사 미소 20기<span class="when">2025.03 – 2026.02</span></li>
-      <li>인천국제공항공사 인천공항 가치점프 5기 장학생<span class="when">2025.03 – 2025.12</span></li>
-    </ul>
-  </section>
-
-  <section id="awards">
-    <h2>수상 및 장학</h2>
-    <ul class="plain">
-      <li>캡스톤디자인 프로젝트 장려상 · 숭실대학교<span class="when">2026.09</span></li>
-      <li>제일하이텍 화학공학과 우수장학금<span class="when">2026.06</span></li>
-      <li>백마성적우수장학금<span class="when">2025.03 · 2025.09 · 2026.03</span></li>
-      <li>숭실대학교 노동조합 직원추천 우수장학금<span class="when">2025.12</span></li>
-    </ul>
-  </section>
-
-  <section id="certifications">
-    <h2>자격</h2>
-    <ul class="plain">
-      <li>데이터분석준전문가 ADsP · 한국데이터산업진흥원<span class="when">2026.03.06</span></li>
-    </ul>
-  </section>
-
-  <footer>
-    <p class="contact">
-      <a href="https://github.com/KJH1021">GitHub</a>
-      <!-- 이메일을 공개하려면 아래 주석을 풀고 주소를 채우세요
-      <a href="mailto:주소@example.com">Email</a>
-      -->
-    </p>
-    <p class="updated">Last updated 2026.09</p>
-  </footer>
-
-</main>
-
-<script>
-  // 아직 올리지 않은 이미지가 깨진 아이콘으로 보이지 않도록 정리합니다.
-  document.querySelectorAll('img[data-optional]').forEach(function (img) {
-    img.addEventListener('error', function () {
-      var figure = img.closest('figure');
-      (figure || img).remove();
-    });
-  });
-</script>
-</body>
-</html>
+  <span class="tag">7개사</span><span class="tag">5개년</span><span class="tag">사업보고서 diff 포함</span>
+</a>
+<div class="report soon">
+  <div class="t">반도체 장비사 × IDM 비교 (2021-2025)</div>
+  <div class="d">동행(소재) 대 후행(장비) 가설 검증 — 준비 중</div>
+</div>
+<h2>구조</h2>
+<div class="pipe">
+  <b>수집</b> <span>OpenDART API — 인증·호출간격 제어·응답 캐시, 기업명/종목코드 매핑 10만 건</span><br>
+  <b>정규화</b> <span>XBRL 표준계정코드 우선 + 계정명 정규식 폴백 → 표준 20개 항목</span><br>
+  <b>계산</b> <span>수익성·안정성·활동성·투자강도 비율, 인력 효율</span><br>
+  <b>서술 추적</b> <span>사업보고서 원문 XML → 섹션 분해 → 문장 단위 diff (표 노이즈 제거)</span><br>
+  <b>출력</b> <span>단일 HTML 리포트</span>
+</div>
+<footer>
+  모든 수치는 DART 공시 원문에서 기계적으로 추출·계산한 결과다.
+  연결/별도 재무제표 구분과 정정공시 여부를 확인한 뒤 활용할 것.
+  투자 판단의 근거로 쓰기 위해 만든 자료가 아니다.
+</footer>
+</div>
+</body></html>
