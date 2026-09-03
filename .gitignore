@@ -18,8 +18,8 @@ env/
 ENV/
 
 # ── dart-agent 전용 ──
-cache/        # corpCode 10만건 + API 응답 캐시
-out/          # 생성된 리포트
+cache/
+out/
 
 # ── 에디터 / OS ──
 .vscode/
