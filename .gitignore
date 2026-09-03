@@ -1,0 +1,29 @@
+# ── 보안: 절대 커밋 금지 ──
+.env
+.env.*
+!.env.example
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+*.egg-info/
+.Python
+build/
+dist/
+
+# 가상환경
+venv/
+.venv/
+env/
+ENV/
+
+# ── dart-agent 전용 ──
+cache/        # corpCode 10만건 + API 응답 캐시
+out/          # 생성된 리포트
+
+# ── 에디터 / OS ──
+.vscode/
+.idea/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
